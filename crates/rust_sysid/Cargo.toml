@@ -1,0 +1,15 @@
+[package]
+name = "rust_sysid"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "rust_sysid"
+
+[[bin]]
+name = "rust_sysid"
+path = "src/main.rs"
+
+[dependencies]
+
+[dev-dependencies]

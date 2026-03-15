@@ -1,0 +1,3 @@
+[workspace]
+members = ["crates/rust_sysid", "crates/rust_sysid_py"]
+resolver = "2"
