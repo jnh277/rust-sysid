@@ -12,7 +12,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest"]
+dev = ["pytest", "maturin>=1.5,<2.0"]
 
 [tool.maturin]
 manifest-path = "crates/rust_sysid_py/Cargo.toml"
