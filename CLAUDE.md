@@ -6,7 +6,21 @@ You are an expert software engineer experienced in domain driven development.
 
 ## Project Overview
 
-This is a system identification library written in Rust with Python bindings via PyO3. See `README.md` for project structure, prerequisites, and usage examples.
+This is a system identification library written in Rust with Python bindings via PyO3. See `README.md` for project scope, design goals (numerical robustness, computational efficiency), structure, and usage examples.
+
+## Task-Specific Instructions
+
+Role-specific instructions are in `.claude/`. Apply automatically based on task type:
+
+| Task Type | Instructions | When to Use |
+|-----------|--------------|-------------|
+| Research | `.claude/instructions-research.md` | Researching algorithms before implementation |
+| Implement | `.claude/instructions-implement.md` | Writing Rust code for algorithms |
+| Review | `.claude/instructions-review.md` | Reviewing code for correctness and robustness |
+| Validate | `.claude/instructions-validate.md` | Designing statistical validation tests |
+| Bindings | `.claude/instructions-bindings.md` | Creating Python bindings |
+
+Research outputs go to `docs/research/<method-name>.md` and should be consulted before implementing.
 
 ## Build Commands
 

@@ -1,5 +1,47 @@
 # rust-sysid
-A dynamic system identification project built in Rust with Python bindings.
+A dynamic system identification library built in Rust with Python bindings.
+
+## Intent
+
+This library provides system identification and state estimation tools for dynamic systems. The core algorithms are implemented in Rust for performance and safety, with Python bindings via PyO3 for ease of use in scientific workflows.
+
+## Scope
+
+The library covers both **linear** and **non-linear** dynamic systems.
+
+### State Estimation
+
+A progression of filtering and smoothing algorithms:
+
+- **Kalman filter/smoother** — optimal for linear-Gaussian systems
+- **Extended Kalman filter (EKF)** — first-order linearisation for non-linear systems
+- **Unscented Kalman filter (UKF)** — sigma-point methods for improved non-linear handling
+- **Particle filters / Sequential Monte Carlo** — general non-linear, non-Gaussian systems
+
+### System Identification
+
+Parameter estimation methods for state-space models:
+
+- **Expectation Maximisation (EM)** — maximum likelihood via iterative filtering/smoothing
+- **Sampling approaches** — MCMC and other Bayesian methods for posterior inference
+
+## Design Goals
+
+### Numerical Robustness
+
+Numerical stability is a primary concern throughout the implementation:
+
+- **Square-root formulations** — filters propagate Cholesky factors rather than full covariance matrices, preserving positive-definiteness by construction
+- **Stable updates** — Joseph form and other numerically robust covariance update equations
+- **Avoiding explicit inversions** — linear solves instead of computing matrix inverses
+
+### Computational Efficiency
+
+Performance without sacrificing correctness:
+
+- **faer** — all linear algebra uses [faer](https://github.com/sarah-ek/faer-rs), a high-performance pure-Rust library, chosen for tight Rust integration over BLAS/LAPACK
+- **Structure exploitation** — algorithms exploit matrix symmetry, sparsity, and bandedness where applicable
+- **Appropriate factorizations** — Cholesky for symmetric positive-definite systems, QR for least-squares problems
 
 ## Project Structure
 
