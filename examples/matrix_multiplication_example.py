@@ -3,6 +3,14 @@ import rust_sysid
 
 from time import perf_counter
 
+"""
+What we learnt form this example is that either we need to force the user to swap the memory ordering
+using np.asfortranarray before calling (which Is a bad idea for usability)
+
+Or we have to swap it when we receive the data in rust. Which while adds a slight overhead. Is going to be
+better
+"""
+
 a = np.random.randn(1000, 1000)
 b = np.random.randn(1000, 1000)
 
