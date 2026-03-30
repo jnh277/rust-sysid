@@ -11,5 +11,7 @@ name = "rust_sysid"
 path = "src/main.rs"
 
 [dependencies]
+faer = { version = "0.24.0", features = ["rayon", "npy"] }
+rayon = "1.10"
 
 [dev-dependencies]

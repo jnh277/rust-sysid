@@ -9,4 +9,6 @@ crate-type = ["cdylib"]
 
 [dependencies]
 pyo3 = { version = "0.23", features = ["extension-module"] }
+numpy = "0.23"
+faer = "0.24"
 rust_sysid = { path = "../rust_sysid" }
